@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500&family=Poppins:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    
+    --primary: 231 48% 48%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 340 100% 32%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --ring: 215 20.2% 65.1%;
+    
+    --radius: 0.5rem;
+    
+    /* Chart colors */
+    --chart-1: 231 48% 48%;
+    --chart-2: 340 100% 32%;
+    --chart-3: 262 83% 58%;
+    --chart-4: 199 89% 48%;
+    --chart-5: 26 83% 52%;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+.player-font {
+  font-family: 'Poppins', sans-serif;
+}
+
+.waveform {
+  background: linear-gradient(90deg, rgba(63,81,181,0.5) 0%, rgba(245,0,87,0.5) 100%);
+  clip-path: polygon(0% 50%, 5% 45%, 10% 40%, 15% 35%, 20% 40%, 25% 50%, 30% 60%, 35% 50%, 
+                    40% 40%, 45% 35%, 50% 40%, 55% 50%, 60% 55%, 65% 50%, 
+                    70% 40%, 75% 45%, 80% 55%, 85% 60%, 90% 55%, 95% 50%, 100% 45%);
+}
+
+.waveform-inactive {
+  background: #e0e0e0;
+  clip-path: polygon(0% 50%, 5% 45%, 10% 40%, 15% 35%, 20% 40%, 25% 50%, 30% 60%, 35% 50%, 
+                    40% 40%, 45% 35%, 50% 40%, 55% 50%, 60% 55%, 65% 50%, 
+                    70% 40%, 75% 45%, 80% 55%, 85% 60%, 90% 55%, 95% 50%, 100% 45%);
+}

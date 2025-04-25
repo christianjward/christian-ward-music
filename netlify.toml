@@ -1,0 +1,25 @@
+# Production context: All deploys from the main
+# repository branch will inherit these settings.
+[build]
+  command = "cd client && npm install && npm run build"
+  publish = "client/dist"
+  functions = "netlify/functions"
+
+# Specific branch context: Deploys from this branch
+# will take these settings and override their
+# current ones.
+[context.production]
+  environment = { NODE_VERSION = "20" }
+  
+# A basic redirect rule
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+# This redirect is used for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

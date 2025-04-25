@@ -1,0 +1,9 @@
+{
+  "name": "netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for Christian Ward Music",
+  "dependencies": {
+    "express": "^4.21.2",
+    "serverless-http": "^3.2.0"
+  }
+}

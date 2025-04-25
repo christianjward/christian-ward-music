@@ -1,0 +1,20 @@
+# This is a backup netlify.toml that will be copied to the public directory
+# This ensures the configuration is available in the client build output
+
+[build]
+  # This is usually handled by the root netlify.toml, but this is a fallback
+  publish = "."
+
+[functions]
+  directory = "../../netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
