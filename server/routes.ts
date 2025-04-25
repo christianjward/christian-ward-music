@@ -15,10 +15,10 @@ if (!fs.existsSync(storage_dir)) {
 }
 
 const trackStorage = multer.diskStorage({
-  destination: (_req, _file, cb) => {
+  destination: (_req: Express.Request, _file: Express.Multer.File, cb: (error: Error | null, destination: string) => void) => {
     cb(null, storage_dir);
   },
-  filename: (_req, file, cb) => {
+  filename: (_req: Express.Request, file: Express.Multer.File, cb: (error: Error | null, filename: string) => void) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     cb(null, uniqueSuffix + path.extname(file.originalname));
   }
@@ -26,9 +26,9 @@ const trackStorage = multer.diskStorage({
 
 const upload = multer({ 
   storage: trackStorage,
-  fileFilter: (_req, file, cb) => {
+  fileFilter: (_req: Express.Request, file: Express.Multer.File, cb: (error: Error | null, acceptFile: boolean) => void) => {
     if (file.mimetype !== 'audio/mpeg') {
-      return cb(new Error('Only MP3 files are allowed'));
+      return cb(new Error('Only MP3 files are allowed'), false);
     }
     cb(null, true);
   },

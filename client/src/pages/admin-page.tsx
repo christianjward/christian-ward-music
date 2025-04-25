@@ -373,6 +373,7 @@ export default function AdminPage() {
                               type="number" 
                               placeholder="e.g. 120" 
                               {...field}
+                              value={field.value || ''} // Fix for TypeScript error
                               onChange={e => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
                             />
                           </FormControl>
@@ -388,7 +389,7 @@ export default function AdminPage() {
                         <FormItem>
                           <FormLabel>Key (Optional)</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g. C Minor" {...field} />
+                            <Input placeholder="e.g. C Minor" {...field} value={field.value || ''} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

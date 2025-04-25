@@ -1,0 +1,128 @@
+The Netlify deploy errored. The relevant error log line information is:
+
+Line 0: build-image version: a40b0edf29b13e2c3f0580ec07565679cdb6f371 (noble)
+Line 1: buildbot version: a40b0edf29b13e2c3f0580ec07565679cdb6f371
+Line 2: Fetching cached dependencies
+Line 3: Failed to fetch cache, continuing with build
+Line 4: Starting to prepare the repo for build
+Line 5: No cached dependencies found. Cloning fresh repo
+Line 6: git clone --filter=blob:none https://github.com/christianjward/christian-ward-music
+Line 7: Preparing Git Reference refs/heads/main
+Line 8: Starting to install dependencies
+Line 9: Python version set to 3.13.3
+Line 10: Ruby version set to 2.7.2
+Line 11: [2mmise[0m [34mgo[0m@1.19         install
+Line 12: [2mmise[0m [34mgo[0m@1.19         download go1.19.linux-amd64.tar.gz
+Line 13: [2mmise[0m [34mgo[0m@1.19         checksum go1.19.linux-amd64.tar.gz
+Line 71:   production
+Line 72: [96m[1m​[22m[39m
+Line 73: [96m[1mbuild.command from netlify.toml                               [22m[39m
+Line 74: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 75: ​
+Line 76: [36m$ cd client && npm install && npm run build[39m
+Line 77: up to date, audited 1 package in 203ms
+Line 78: found 0 vulnerabilities
+Line 79: > christian-ward-music-client@1.0.0 build
+Line 80: > tsc && vite build
+Line 81: src/pages/admin-page.tsx(372,30): error TS2322: Type '{ onChange: (e: ChangeEvent<HTMLInputElement>) => void; onBlur: Noop; valu
+Line 82:   Types of property 'value' are incompatible.
+Line 83:     Type 'number | null | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
+Line 84:       Type 'null' is not assignable to type 'string | number | readonly string[] | undefined'.
+Line 85: src/pages/admin-page.tsx(391,30): error TS2322: Type '{ onChange: (...event: any[]) => void; onBlur: Noop; value: string | null 
+Line 86:   Types of property 'value' are incompatible.
+Line 87:     Type 'string | null | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
+Line 88:       Type 'null' is not assignable to type 'string | number | readonly string[] | undefined'.
+Line 89: ../server/routes.ts(4,20): error TS7016: Could not find a declaration file for module 'multer'. '/opt/build/repo/node_modules/mu
+Line 90:   Try `npm i --save-dev @types/multer` if it exists or add a new declaration (.d.ts) file containing `declare module 'multer';`
+Line 91: ../server/routes.ts(18,17): error TS7006: Parameter '_req' implicitly has an 'any' type.
+Line 92: ../server/routes.ts(18,23): error TS7006: Parameter '_file' implicitly has an 'any' type.
+Line 93: ../server/routes.ts(18,30): error TS7006: Parameter 'cb' implicitly has an 'any' type.
+Line 94: ../server/routes.ts(21,14): error TS7006: Parameter '_req' implicitly has an 'any' type.
+Line 95: ../server/routes.ts(21,20): error TS7006: Parameter 'file' implicitly has an 'any' type.
+Line 96: ../server/routes.ts(21,26): error TS7006: Parameter 'cb' implicitly has an 'any' type.
+Line 97: ../server/routes.ts(29,16): error TS7006: Parameter '_req' implicitly has an 'any' type.
+Line 98: ../server/routes.ts(29,22): error TS7006: Parameter 'file' implicitly has an 'any' type.
+Line 99: ../server/routes.ts(29,28): error TS7006: Parameter 'cb' implicitly has an 'any' type.
+Line 100: ../server/routes.ts(107,16): error TS2339: Property 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs,
+Line 101: ../server/routes.ts(111,28): error TS2339: Property 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs,
+Line 102: ../server/storage.ts(216,25): error TS2694: Namespace 'session' has no exported member 'SessionStore'.
+Line 103: ../server/storage.ts(228,43): error TS2552: Cannot find name 'users'. Did you mean 'user'?
+Line 104: ../server/storage.ts(228,59): error TS2552: Cannot find name 'users'. Did you mean 'user'?
+Line 105: ../server/storage.ts(233,43): error TS2552: Cannot find name 'users'. Did you mean 'user'?
+Line 106: ../server/storage.ts(233,59): error TS2552: Cannot find name 'users'. Did you mean 'user'?
+Line 107: ../server/storage.ts(239,15): error TS2552: Cannot find name 'users'. Did you mean 'user'?
+Line 108: ../server/storage.ts(246,35): error TS2304: Cannot find name 'tracks'.
+Line 109: ../server/storage.ts(250,44): error TS2552: Cannot find name 'tracks'. Did you mean 'track'?
+Line 110: ../server/storage.ts(250,61): error TS2552: Cannot find name 'tracks'. Did you mean 'track'?
+Line 111: ../server/storage.ts(255,35): error TS2304: Cannot find name 'tracks'.
+Line 112: ../server/storage.ts(255,52): error TS2304: Cannot find name 'tracks'.
+Line 113: ../server/storage.ts(259,35): error TS2304: Cannot find name 'tracks'.
+Line 114: ../server/storage.ts(259,52): error TS2304: Cannot find name 'tracks'.
+Line 115: ../server/storage.ts(263,35): error TS2304: Cannot find name 'tracks'.
+Line 116: ../server/storage.ts(263,52): error TS2304: Cannot find name 'tracks'.
+Line 117: ../server/storage.ts(268,15): error TS2304: Cannot find name 'tracks'.
+Line 118: ../server/storage.ts(276,15): error TS2304: Cannot find name 'tracks'.
+Line 119: ../server/storage.ts(278,17): error TS2304: Cannot find name 'tracks'.
+Line 120: ../server/storage.ts(285,15): error TS2304: Cannot find name 'tracks'.
+Line 121: ../server/storage.ts(286,17): error TS2304: Cannot find name 'tracks'.
+Line 122: ../server/storage.ts(287,24): error TS2304: Cannot find name 'tracks'.
+Line 123: ../server/storage.ts(292,35): error TS2304: Cannot find name 'genres'.
+Line 124: ../server/storage.ts(296,44): error TS2304: Cannot find name 'genres'.
+Line 125: ../server/storage.ts(296,61): error TS2304: Cannot find name 'genres'.
+Line 126: ../server/storage.ts(302,15): error TS2304: Cannot find name 'genres'.
+Line 127: ../server/storage.ts(309,35): error TS2304: Cannot find name 'moods'.
+Line 128: ../server/storage.ts(313,43): error TS2304: Cannot find name 'moods'.
+Line 129: ../server/storage.ts(313,59): error TS2304: Cannot find name 'moods'.
+Line 130: ../server/storage.ts(319,15): error TS2304: Cannot find name 'moods'.
+Line 131: ../server/vite.ts(39,5): error TS2322: Type '{ middlewareMode: boolean; hmr: { server: Server<typeof IncomingMessage, typeof Ser
+Line 132:   Types of property 'allowedHosts' are incompatible.
+Line 133:     Type 'boolean' is not assignable to type 'true | string[] | undefined'.
+Line 134: [91m[1m​[22m[39m
+Line 135: [91m[1m"build.command" failed                                        [22m[39m
+Line 136: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 137: ​
+Line 138:   [31m[1mError message[22m[39m
+Line 139:   Command failed with exit code 2: cd client && npm install && npm run build
+Line 140: ​
+Line 141:   [31m[1mError location[22m[39m
+Line 142:   In build.command from netlify.toml:
+Line 143:   cd client && npm install && npm run build
+Line 144: ​
+Line 145:   [31m[1mResolved config[22m[39m
+Line 146:   build:
+Line 147:     command: cd client && npm install && npm run build
+Line 148:     commandOrigin: config
+Line 149:     environment:
+Line 150:       - NODE_VERSION
+Line 151:     publish: /opt/build/repo/client/dist
+Line 152:     publishOrigin: config
+Line 153:   functionsDirectory: /opt/build/repo/netlify/functions
+Line 154:   redirects:
+Line 155: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 156:     - from: /api/*
+      status: 200
+      to: /.netlify/functions/api/:splat
+    - force: true
+      from: /api/*
+      status:
+Line 157: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 158: Failing build: Failed to build site
+Line 159: Finished processing build request in 26.905s
+
+Netlify has analyzed the error and provided the following guidance:
+
+### Diagnosis
+The build failed due to TypeScript errors in the source code, specifically in the `admin-page.tsx` file and `routes.ts` file.
+
+### Solution
+1. **TypeScript Errors in `admin-page.tsx`**:
+   - Lines 81-88 indicate issues with incompatible types for the `value` property.
+   - You need to address the incompatible types in the `admin-page.tsx` file for the `value` property.
+
+2. **TypeScript Errors in `routes.ts`**:
+   - Lines 89-129 indicate TypeScript errors related to missing types and implicit 'any' types in the `routes.ts` file.
+   - To solve these errors:
+     - Run `npm i --save-dev @types/multer` to install the types for multer. Verify the package is in `package.json` or was committed to the repository.
+     - Resolve the implicit 'any' types in the `routes.ts` file by explicitly typing the parameters.
+
+After fixing these TypeScript errors, trigger a new build to verify if the issues are resolved.

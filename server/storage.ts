@@ -205,15 +205,19 @@ export class MemStorage implements IStorage {
   }
 }
 
+// Import the database modules
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 import session from "express-session";
 import connectPg from "connect-pg-simple";
+import { 
+  users, tracks, genres, moods
+} from "@shared/schema"; // Import the schema tables
 
 const PostgresSessionStore = connectPg(session);
 
 export class DatabaseStorage implements IStorage {
-  sessionStore: session.SessionStore;
+  sessionStore: any; // Define the session store type
   
   constructor() {
     this.sessionStore = new PostgresSessionStore({ 

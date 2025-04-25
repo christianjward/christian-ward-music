@@ -1,7 +1,7 @@
 # Production context: All deploys from the main
 # repository branch will inherit these settings.
 [build]
-  command = "cd client && npm install && npm run build"
+  command = "cd client && npm install && npm run build:netlify"
   publish = "client/dist"
   functions = "netlify/functions"
 
