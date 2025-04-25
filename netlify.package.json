@@ -1,0 +1,14 @@
+{
+  "name": "christian-ward-music-netlify",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd client && npm install && npm run build:netlify",
+    "functions": "echo 'Using netlify functions from netlify/functions'"
+  },
+  "dependencies": {
+    "serverless-http": "^3.2.0",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.2"
+  }
+}
