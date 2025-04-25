@@ -1,0 +1,103 @@
+The Netlify deploy errored. The relevant error log line information is:
+
+Line 0: build-image version: a40b0edf29b13e2c3f0580ec07565679cdb6f371 (noble)
+Line 1: buildbot version: a40b0edf29b13e2c3f0580ec07565679cdb6f371
+Line 2: Fetching cached dependencies
+Line 3: Failed to fetch cache, continuing with build
+Line 4: Starting to prepare the repo for build
+Line 5: No cached dependencies found. Cloning fresh repo
+Line 6: git clone --filter=blob:none https://github.com/christianjward/christian-ward-music
+Line 7: Preparing Git Reference refs/heads/main
+Line 8: Custom build command detected. Proceeding with the specified command: 'cd client && npm install && npm run build:netlify'
+Line 9: Starting to install dependencies
+Line 10: Python version set to 3.13.3
+Line 11: Ruby version set to 2.7.2
+Line 12: [2mmise[0m [34mgo[0m@1.19         install
+Line 13: [2mmise[0m [34mgo[0m@1.19         download go1.19.linux-amd64.tar.gz
+Line 25: Now using node v20.19.1 (npm v10.8.2)
+Line 26: Enabling Node.js Corepack
+Line 27: Started restoring cached build plugins
+Line 28: Finished restoring cached build plugins
+Line 29: Started restoring cached corepack dependencies
+Line 30: Finished restoring cached corepack dependencies
+Line 31: No npm workspaces detected
+Line 32: Started restoring cached node modules
+Line 33: Finished restoring cached node modules
+Line 34: Installing npm packages using npm version 10.8.2
+Line 35: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 36: npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+Line 37: npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+Line 38: added 537 packages, and audited 538 packages in 6s
+Line 39: 69 packages are looking for funding
+Line 40:   run `npm fund` for details
+Line 41: 7 moderate severity vulnerabilities
+Line 42: To address issues that do not require attention, run:
+Line 43:   npm audit fix
+Line 44: To address all issues (including breaking changes), run:
+Line 45:   npm audit fix --force
+Line 76: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 77: ​
+Line 78: [36m$ cd client && npm install && npm run build:netlify[39m
+Line 79: up to date, audited 1 package in 165ms
+Line 80: found 0 vulnerabilities
+Line 81: > christian-ward-music-client@1.0.0 build:netlify
+Line 82: > vite build
+Line 83: [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+Line 84: transforming...
+Line 85: [32m✓[39m 4 modules transformed.
+Line 86: [31mx[39m Build failed in 190ms
+Line 87: [31merror during build:
+Line 88: [31m[vite]: Rollup failed to resolve import "@/components/ui/toaster" from "/opt/build/repo/client/src/App.tsx".
+Line 89: This is most likely unintended because it can break your application at runtime.
+Line 90: If you do want to externalize this module explicitly add it to
+Line 91: `build.rollupOptions.external`[31m
+Line 92:     at viteWarn (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65747:17)
+Line 93:     at onRollupWarning (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65779:5)
+Line 94:     at onwarn (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65442:7)
+Line 95:     at file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:19452:13
+Line 96:     at Object.logger [as onLog] (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:21178:9)
+Line 97:     at ModuleLoader.handleInvalidResolvedId (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20067:26)
+Line 98:     at file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20025:26[39m
+Line 99: [91m[1m​[22m[39m
+Line 100: [91m[1m"build.command" failed                                        [22m[39m
+Line 101: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 102: ​
+Line 103:   [31m[1mError message[22m[39m
+Line 104:   Command failed with exit code 1: cd client && npm install && npm run build:netlify
+Line 105: ​
+Line 106:   [31m[1mError location[22m[39m
+Line 107:   In build.command from netlify.toml:
+Line 108:   cd client && npm install && npm run build:netlify
+Line 109: ​
+Line 110:   [31m[1mResolved config[22m[39m
+Line 111:   build:
+Line 112:     command: cd client && npm install && npm run build:netlify
+Line 113:     commandOrigin: config
+Line 114:     environment:
+Line 115:       - NODE_VERSION
+Line 116:     publish: /opt/build/repo/client/dist
+Line 117:     publishOrigin: config
+Line 118:   functionsDirectory: /opt/build/repo/netlify/functions
+Line 119:   redirects:
+Line 120:     - from: /api/*
+      status: 200
+      to: /.netlify/functions/api/:splat
+    - force: true
+      from: /api/*
+      status:
+Line 121: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 122: Failing build: Failed to build site
+Line 123: Finished processing build request in 23.481s
+
+Netlify has analyzed the error and provided the following guidance:
+
+### Diagnosis
+The build failure is due to a Rollup error where it failed to resolve the import `"@/components/ui/toaster"` from `App.tsx`.
+
+- Error line: [line 88](#L88)
+
+### Solution
+1. Verify that the module `"@/components/ui/toaster"` is correctly imported and exists in your project.
+2. If the module exists, add it to `build.rollupOptions.external` configuration to ensure Rollup can handle it.
+
+You can refer to the [Rollup documentation](https://rollupjs.org/guide/en/#buildrollupoptionsexternal) for more information on configuring external dependencies.
